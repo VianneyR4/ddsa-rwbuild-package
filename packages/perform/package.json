@@ -1,0 +1,36 @@
+{
+  "name": "@openclinical/proformajs-vue3-perform",
+  "version": "0.1.30",
+  "description": "Vue3 SFCs for enacting proformajs protocols",
+  "type": "module",
+  "main": "./dist/proformajs-vue3-perform.umd.cjs",
+  "module": "./dist/proformajs-vue3-perform.js",
+  "exports": {
+    ".": {
+      "import": "./dist/proformajs-vue3-perform.js",
+      "require": "./dist/proformajs-vue3-perform.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "lint": "eslint ./src --ext .vue,.js,.jsx,.cjs,.mjs --fix",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@openclinical/proformajs": "^0.11",
+    "bootstrap": "^5.2.3",
+    "marked": "^12.0.2",
+    "dompurify": "^3.0.2",
+    "file-saver": "^2.0.5",
+    "moment": "^2.29.4",
+    "vue": "^3.2.47"
+  },
+  "author": "Matt South",
+  "license": "GPL-3"
+}

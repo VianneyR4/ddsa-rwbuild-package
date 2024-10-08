@@ -1,0 +1,43 @@
+image: cypress/browsers:node18.12.0-chrome107
+
+stages:
+  - build
+  - lint
+  - format
+  - audit
+  - test
+
+install_dependencies:
+  stage: build
+  script:
+    - npm ci
+    - npm run build
+  artifacts:
+    paths:
+      - node_modules/
+      - dist/
+      - packages/*/dist
+
+cypress:
+  stage: test
+  script:
+    - npm ci
+    - npm run test:e2e
+  artifacts:
+    when: always
+    paths:
+      - cypress/screenshots/**/*.png
+    expire_in: 1 day
+
+prettier:
+  stage: format
+  script:
+    - npm run format
+
+eslint:
+  stage: lint
+  script: npm run lint
+
+audit:
+  stage: audit
+  script: npm audit --omit=dev --audit-level=low

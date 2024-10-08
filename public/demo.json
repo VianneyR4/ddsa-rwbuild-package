@@ -1,0 +1,205 @@
+{
+  "class": "Plan",
+  "meta": {
+    "svg": {
+      "width": 800,
+      "height": 400
+    },
+    "enact": {
+      "template": "development"
+    }
+  },
+  "caption": "Hey This is Us",
+  "name": "demo",
+  "autonomous": true,
+  "dataDefinitions": [
+    {
+      "class": "Text",
+      "caption": "Credit history",
+      "name": "credit_history",
+      "range": [
+        "good",
+        "bad"
+      ]
+    },
+    {
+      "class": "Integer",
+      "caption": "Loan amount",
+      "name": "loan_amount"
+    },
+    {
+      "class": "Integer",
+      "caption": "Loan term",
+      "name": "loan_term",
+      "range": [
+        12,
+        36,
+        60
+      ]
+    },
+    {
+      "class": "Text",
+      "caption": "Fruits",
+      "name": "fruit",
+      "range": [
+        "banana",
+        "apple",
+        "orange"
+
+      ]
+    },
+    {
+      "class": "Integer",
+      "caption": "Applicant income",
+      "name": "applicant_income"
+    },
+    {
+      "class": "Integer",
+      "caption": "Co-applicant income",
+      "name": "coapplicant_income",
+      "description": "A co-applicant can support the application"
+    },
+    {
+      "class": "Integer",
+      "caption": "Total income",
+      "name": "total_income",
+      "valueCondition": "applicant_income + (is_known(\"coapplicant_income\") ? coapplicant_income : 0)"
+    }
+  ],
+  "tasks": [
+    {
+      "class": "Enquiry",
+      "meta": {
+        "pos": {
+          "x": 80.33348695217464,
+          "y": 116.33318073802349
+        }
+      },
+      "caption": "Enquire",
+      "name": "enquire",
+      "sources": [
+        {
+          "class": "Source",
+          "type": "credit_history",
+          "requestCondition": "!is_known('credit_history')"
+        },
+        {
+          "class": "Source",
+          "type": "loan_amount",
+          "requestCondition": "!is_known('loan_amount')"
+        },
+        {
+          "class": "Source",
+          "type": "loan_term",
+          "requestCondition": "!is_known('loan_term')"
+        },
+        {
+          "class": "Source",
+          "type": "applicant_income",
+          "requestCondition": "!is_known('applicant_income')"
+        },
+        {
+          "class": "Source",
+          "type": "coapplicant_income"
+        }
+      ]
+    },
+    {
+      "class": "Decision",
+      "meta": {
+        "pos": {
+          "x": 246.51980167401547,
+          "y": 116.17624534157898
+        },
+        "ui": {
+          "decision": {
+            "singleChoice": true
+          }
+        }
+      },
+      "caption": "Decide",
+      "name": "decide",
+      "preCondition": "is_completed('enquire')",
+      "waitCondition": "is_finished('enquire')",
+      "candidates": [
+        {
+          "class": "Candidate",
+          "caption": "Grant",
+          "description": "Grant reasonable loan requests to people with a good credit history",
+          "name": "grant",
+          "recommendCondition": "net_support('grant')>1",
+          "arguments": [
+            {
+              "class": "Argument",
+              "caption": "loan_amount<0.40*total_income*loan_term/60",
+              "description": "The <em>standard</em> formula",
+              "support": 1,
+              "activeCondition": "loan_amount<0.40*total_income*loan_term/60"
+            },
+            {
+              "class": "Argument",
+              "caption": "credit_history==\"good\"",
+              "support": 1,
+              "activeCondition": "credit_history==\"good\""
+            },
+            {
+              "class": "Argument",
+              "caption": "credit_history==\"bad\"",
+              "support": -1,
+              "activeCondition": "credit_history==\"bad\""
+            }
+          ]
+        },
+        {
+          "class": "Candidate",
+          "caption": "Deny",
+          "description": "Deny by default",
+          "name": "deny",
+          "recommendCondition": "net_support('grant')<=1"
+        }
+      ]
+    },
+    {
+      "class": "Plan",
+      "meta": {
+        "pos": {
+          "x": 415.2151403120837,
+          "y": 54.278709608463274
+        }
+      },
+      "caption": "Granted",
+      "name": "granted",
+      "preCondition": "is_completed('decide') && result_of('decide')==\"grant\"",
+      "waitCondition": "is_finished('decide')",
+      "tasks": [
+        {
+          "class": "Action",
+          "meta": {
+            "pos": {
+              "x": 85.19674648095355,
+              "y": 104.32546871545753
+            }
+          },
+          "caption": "Make payment",
+          "description": "Please pay the applicant the requested amount.",
+          "name": "make_payment"
+        }
+      ],
+      "autonomous": true
+    },
+    {
+      "class": "Action",
+      "meta": {
+        "pos": {
+          "x": 414.40532202530244,
+          "y": 184.48016106990943
+        }
+      },
+      "caption": "Denied",
+      "description": "This loan application has not been successful.",
+      "name": "denied",
+      "preCondition": "is_completed('decide') && result_of('decide')==\"deny\"",
+      "waitCondition": "is_finished('decide')"
+    }
+  ]
+}
