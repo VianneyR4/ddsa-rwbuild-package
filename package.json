@@ -1,6 +1,6 @@
 {
-  "name": "@openclinical/proformajs-vue3",
-  "version": "0.1.30",
+  "name": "ddsa-vue3-views",
+  "version": "1.0.0",
   "type": "module",
   "main": "./dist/proformajs-vue3.umd.cjs",
   "module": "./dist/proformajs-vue3.js",
