@@ -1,6 +1,6 @@
 {
-  "name": "@openclinical/proformajs-vue3-compose",
-  "version": "0.1.30",
+  "name": "ddsa-vue3-views",
+  "version": "1.0.0",
   "description": "Vue3 SFCs that can be used to compose proformajs protocols",
   "type": "module",
   "main": "./dist/proformajs-vue3-compose.umd.cjs",
