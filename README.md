@@ -1,4 +1,4 @@
-# ddsa-vue3-views@1.0.0
+# ddsa-vue3-views
 
 A vue3 version of ddsa-vue3-views.
 

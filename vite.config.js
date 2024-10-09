@@ -34,7 +34,7 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, 'index.js'),
-      name: 'DdsaVue3Views',
+      name: 'ddsa-vue3-views',
       // the proper extensions will be added
       fileName: 'ddsa-vue3-views',
     },

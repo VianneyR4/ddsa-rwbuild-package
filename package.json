@@ -1,13 +1,13 @@
 {
   "name": "ddsa-vue3-views",
-  "version": "1.1.1",
+  "version": "1.4.0",
   "type": "module",
-  "main": "./dist/proformajs-vue3.umd.cjs",
-  "module": "./dist/proformajs-vue3.js",
+  "main": "./dist/ddsa-vue3-views.umd.cjs",
+  "module": "./dist/ddsa-vue3-views.js",
   "exports": {
     ".": {
-      "import": "./dist/proformajs-vue3.js",
-      "require": "./dist/proformajs-vue3.umd.cjs"
+      "import": "./dist/ddsa-vue3-views.js",
+      "require": "./dist/ddsa-vue3-views.umd.cjs"
     }
   },
   "files": [
