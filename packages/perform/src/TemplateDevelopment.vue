@@ -1,17 +1,5 @@
 <docs>
 Provides a UI for a proformajs Enactment.
-
-# props
-
-* enactment - a PROformajs enactment
-* options - review settings
-* debug - allows access to the "Debug expressions" functionality
-
-# events
-
-* change-enactment - signals the need to update the enactment
-* change-option - signals an option change
-
 </docs>
 
 <template>
@@ -28,13 +16,15 @@ Provides a UI for a proformajs Enactment.
           >
             <font-awesome-icon icon="redo-alt" /> Restart
           </button>
-          <p-settings
+          <div>
+            <!-- <p-settings
             :id="'popover-reivew'"
             :options="options"
             placement="left"
             @change-option="OnUpdateOptions"
             @restart-enactment="$emit('restart-enactment')"
-          />
+          /> -->
+          </div>
         </div>
       </template>
       <div v-if="status.finished">
@@ -54,7 +44,6 @@ Provides a UI for a proformajs Enactment.
       </div>
     </div>
 
-
     <div class="container-fluid">
       <div class="float-end">
         <button @click="$emit('restart-enactment')" class="btn btn-outline-secondary">
@@ -62,7 +51,7 @@ Provides a UI for a proformajs Enactment.
         </button>
         <p-settings
           :id="'popover-review'"
-          class="ms-1"
+          class="mx-2"
           :options="options"
           placement="left"
           :restart="false"
@@ -71,8 +60,6 @@ Provides a UI for a proformajs Enactment.
         />
       </div>
     </div>
-
-
   </div>
 </template>
 
@@ -81,8 +68,7 @@ import { EnactmentMixin } from './perform'
 
 export default {
   mixins: [EnactmentMixin],
-  components: {
-  },
+  components: {},
   emits: ['change-option'],
   data() {
     return {

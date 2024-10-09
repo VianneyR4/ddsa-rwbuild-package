@@ -186,7 +186,7 @@ interactable.
         </button>
       </div>
       <button
-        class="btn btn-info float-end"
+        class="btn btn-success float-end next-button"
         v-else
         @click="$emit('update-enactment', { action: 'complete', path: task.path })"
         :disabled="!task.completeable"
@@ -216,9 +216,6 @@ import EnactmentMarkdown from './EnactmentMarkdown.vue'
 import EnactmentCandidate from './EnactmentCandidate.vue'
 import FileSaver from 'file-saver'
 
-// returns array of dependent data definition names
-// NB this is copy pasted from pfanalyse.
-// TODO: Refactor this into proforamjs
 function dependentDataDefs(decision) {
   // console.debug('dependentDataDefs - called', decision)
   let result = []
