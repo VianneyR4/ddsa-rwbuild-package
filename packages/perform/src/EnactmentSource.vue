@@ -1,41 +1,14 @@
 <docs>
 Draws a source input, providing UI for user data entry to enactment state.
-
-# props
-
-* source
-* disabled
-* value
-* suffix
-
-# events
-
-* update-source
-* erase-source
-
-# notes
-
-Just about works.  Current coverage shown below.
-
-| class    | single | single (ranged) | multi | multi (ranged) |
-|----------|--------|-----------------|-------|----------------|
-| Integer  |    Y   |         Y       |   Y   |        Y       |
-| Text     |    Y   |         Y       |   Y   |        Y       |
-| Float    |    Y   |         Y       |   Y   |        Y       |
-| Boolean  |    Y   |         Y       |   N   |        N       |
-| Date     |    Y   |         N       |   N   |        N       |
-
-* Would be good to be simplified, which may be necessary in order to provide data updating functionality elsewhere
-* value included as prop because of reactivity woes but it shouldnt be necessary.
-* Boolean data items lookout for the the sources.useButtons metaprop from the parent task
-* Text data items with a range lookout for a source.useDatalist metaprop
 </docs>
 
 <template>
   <div>
-    <fieldset :disabled="disabled">
+    <fieldset class="fieldset-wrapper" :disabled="disabled">
       <label :for="source.name + suffix" class="d-block form-label">
-        <span v-if="!hideCaption || !source.description">{{ source.caption || source.name }}</span>
+        <span class="label-name" v-if="!hideCaption || !source.description">{{
+          source.caption || source.name
+        }}</span>
 
         <!-- If showDescriptionInline && source.description-->
         <template v-if="!showDescriptionInline && source.description">
@@ -205,6 +178,7 @@ Just about works.  Current coverage shown below.
             </div>
           </template>
         </template>
+
         <!-- multi un-ranged -->
         <div class="list-group" v-if="source.multiValued && !source.range && value">
           <div class="list-group-item" v-for="(item, index) in value" :key="index">
@@ -232,6 +206,7 @@ Just about works.  Current coverage shown below.
             </slot>
           </div>
         </div>
+
         <!-- multi ranged -->
         <template v-if="source.multiValued && source.range">
           <div v-for="(item, idx) in source.range" class="form-check" :key="idx">
@@ -249,6 +224,7 @@ Just about works.  Current coverage shown below.
           </div>
         </template>
       </template>
+
       <!-- Show validation message ondemand -->
       <div :class="'invalid-feedback' + (isValid ? '' : ' d-block')" :tabindex="isValid ? 0 : -1">
         {{ feedback }}
@@ -517,5 +493,15 @@ export default {
 .btn.active:disabled {
   color: var(--bs-btn-active-color);
   background-color: var(--bs-btn-active-bg);
+}
+
+.fieldset-wrapper {
+  border-radius: 8px;
+  border: 1px solid #0000001a;
+  padding: 50px;
+}
+
+.fieldset-wrapper .label-name {
+  color: #0075ff;
 }
 </style>

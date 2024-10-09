@@ -1,8 +1,3 @@
-<docs>
-  TODO:
-  - [ ] support input buttons and type = submit || reset
-  - [ ] support block attribute
-</docs>
 
 <template>
   <a v-if="anchor" role="button" :class="classes">
