@@ -1,11 +1,10 @@
-# proformajs-vue3
+# ddsa-vue3-views@1.0.0
 
-A vue3 version of proformajs-vue.
+A vue3 version of ddsa-vue3-views.
 
 This repo uses [npm workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces)
 to create two npm libraries:
-* proformajs-vue3 - components for creating protocols and running enactments
-* proformajs-vue3-perform - a subset of the components needed to run enactments
+* ddsa-vue3-views - components for creating protocols and running enactments
 
 This repo uses CI to:
 * check the code format with prettier
@@ -32,4 +31,3 @@ Workspaces were then created with ``npm init -w .packages/map`` etc.
 
 "license": "ISC"
 
-# ddsa-rwbuild-package
