@@ -26,14 +26,18 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, 'index.js'),
-      name: '@openclinical/proformajs-vue3-perform',
+      name: '@ddsa-vue3-views/perform',
       // the proper extensions will be added
-      fileName: 'proformajs-vue3-perform',
+      fileName: 'ddsa-vue3-views',
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: ['vue', '@openclinical/proformajs', 'moment', 'file-saver', 'marked', 'dompurify', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-solid-svg-icons', '@fortawesome/vue-fontawesome', 'bootstrap'],
+      external: ['vue', '@openclinical/proformajs', 'moment', 'file-saver', 'marked', 'dompurify', '@fortawesome/fontawesome-svg-core', '@fortawesome/free-solid-svg-icons', '@fortawesome/vue-fontawesome', 'bootstrap', 
+        '@ddsa-vue3-views/tools',
+        '@ddsa-vue3-views/perform',
+        '@ddsa-vue3-views/compose'
+      ],
       output: {
         exports: 'named',
         // Provide global variables to use in the UMD build

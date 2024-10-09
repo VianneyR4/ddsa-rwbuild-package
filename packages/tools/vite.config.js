@@ -26,9 +26,9 @@ export default defineConfig({
     lib: {
       // Could also be a dictionary or array of multiple entry points
       entry: resolve(__dirname, 'index.js'),
-      name: '@openclinical/proformajs-vue3-tools',
+      name: '@ddsa-vue3-views/tool',
       // the proper extensions will be added
-      fileName: 'proformajs-vue3-tools',
+      fileName: 'ddsa-vue3-views-tools',
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

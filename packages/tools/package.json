@@ -1,14 +1,14 @@
 {
-  "name": "@openclinical/proformajs-vue3-tools",
-  "version": "0.1.30",
+  "name": "@ddsa-vue3-views/tools",
+  "version": "1.0.0",
   "type": "module",
   "description": "Shared tools for perform and compose packages",
-  "main": "./dist/proformajs-vue3-tools.umd.cjs",
-  "module": "./dist/proformajs-vue3-tools.js",
+  "main": "./dist/ddsa-vue3-views-tools.umd.cjs",
+  "module": "./dist/ddsa-vue3-views-tools.js",
   "exports": {
     ".": {
-      "import": "./dist/proformajs-vue3-tools.js",
-      "require": "./dist/proformajs-vue3-tools.umd.cjs"
+      "import": "./dist/ddsa-vue3-views-tools.js",
+      "require": "./dist/ddsa-vue3-views-tools.umd.cjs"
     }
   },
   "scripts": {

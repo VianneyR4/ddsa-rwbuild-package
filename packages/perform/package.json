@@ -1,6 +1,6 @@
 {
-  "name": "@openclinical/proformajs-vue3-perform",
-  "version": "0.1.30",
+  "name": "@ddsa-vue3-views/perform",
+  "version": "1.0.0",
   "description": "Vue3 SFCs for enacting proformajs protocols",
   "type": "module",
   "main": "./dist/proformajs-vue3-perform.umd.cjs",

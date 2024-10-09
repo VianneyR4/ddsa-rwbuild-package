@@ -1,5 +1,5 @@
 {
-  "name": "ddsa-vue3-views",
+  "name": "@ddsa-vue3-views/compose",
   "version": "1.0.0",
   "description": "Vue3 SFCs that can be used to compose proformajs protocols",
   "type": "module",

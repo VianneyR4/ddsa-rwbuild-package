@@ -60,12 +60,13 @@ import '/packages/compose/dist/style.css';
 
 // export components from map, tools and compose
 // export * from '@openclinical/proformajs-vue3-compose';
-export * from '@openclinical/proformajs-vue3-tools';
+export * from './packages/tools/index.js';
 // export * from '@openclinical/proformajs-vue3-map';
 
 // dont export default from perform...
 export {
   PerformProtocol,
   EnactmentMarkdown,
-  EnactmentSettings
-} from '@openclinical/proformajs-vue3-perform';
+  EnactmentSettings,
+  EnactmentMixin
+} from './packages/perform/index.js';

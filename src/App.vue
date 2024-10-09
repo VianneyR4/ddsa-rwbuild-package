@@ -21,7 +21,7 @@
 <script>
 // import { Tab, Tabs } from '@openclinical/proformajs-vue3-tools'
 import { Protocol } from '@openclinical/proformajs'
-import { PerformProtocol } from '@openclinical/proformajs-vue3-perform'
+import { PerformProtocol } from '../packages/perform/index.js'
 // import { ComposeProtocol } from '@openclinical/proformajs-vue3-compose'
 
 const template = {

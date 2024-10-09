@@ -1,6 +1,6 @@
 {
   "name": "ddsa-vue3-views",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "type": "module",
   "main": "./dist/proformajs-vue3.umd.cjs",
   "module": "./dist/proformajs-vue3.js",
