@@ -3,16 +3,16 @@
     <main role="main">
       <div class="container-fluid mt-3">
         <p-protocol
-              :protocol="protocol"
-              :debug="true"
-              :initialData="startData"
-              :template="
-                protocol && protocol.meta && protocol.meta.enact && protocol.meta.enact.template
-                  ? protocol.meta.enact.template
-                  : 'compact'
-              "
-              class="mt-3"
-            />
+          :protocol="protocol"
+          :debug="true"
+          :initialData="startData"
+          :template="
+            protocol && protocol.meta && protocol.meta.enact && protocol.meta.enact.template
+              ? protocol.meta.enact.template
+              : 'compact'
+          "
+          class="mt-3"
+        />
       </div>
     </main>
   </div>
@@ -73,7 +73,7 @@ function checkMeta(protocol) {
 
 export default {
   components: {
-    'p-protocol': PerformProtocol,
+    'p-protocol': PerformProtocol
     // 'c-protocol': ComposeProtocol,
     // 't-tab': Tab,
     // 't-tabs': Tabs
